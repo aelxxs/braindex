@@ -10,6 +10,7 @@ import {
 	Text,
 	AnimatePresence,
 	styled,
+	Progress,
 } from "tamagui";
 
 const YStackEnterable = styled(YStack, {
@@ -24,7 +25,7 @@ const wrap = (min: number, max: number, v: number) => {
 	return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
 };
 
-const images = studySets.map((x) => x.questions || x)
+const images = studySets.map((x) => x.questions || x);
 
 console.log(images);
 const FlashCard = (studySets: any) => {
@@ -34,11 +35,15 @@ const FlashCard = (studySets: any) => {
 		direction === 1 || direction === 0 ? "isRight" : "isLeft";
 	const exitVariant = direction === 1 ? "isLeft" : "isRight";
 	const imageIndex = wrap(0, studySets.length, page);
-
 	const paginate = (newDirection: number) => {
 		setPage([page + newDirection, newDirection]);
 	};
+    console.log(page)
 	return (
+        <>
+        <Progress width={400} size='$4' value={(page/10) * 100}> 
+				<Progress.Indicator animation="bouncy" />
+		</Progress>
 		<Card
 			size="$5"
 			w={400}
@@ -103,13 +108,16 @@ const FlashCard = (studySets: any) => {
 				</XStack>
 			</XStack>
 		</Card>
+        </>
 	);
 };
 
 export const FlashCardScreen = () => {
 	return (
-		<XStack>
+		<YStack>
+            {/* Needs to find the page number */}
+			
 			<FlashCard elevate studySets={images} />
-		</XStack>
+		</YStack>
 	);
 };
