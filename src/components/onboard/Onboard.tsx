@@ -6,8 +6,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { CognitoUserPool } from "amazon-cognito-identity-js";
 
 const poolData = {
-	UserPoolId: "us-east-1_VRoNqnQfv",
-	ClientId: "hvq0fic5hcfjeu2lba9bhngkn",
+	UserPoolId: "",
+	ClientId: "",
 };
 
 export const cognitoPool = new CognitoUserPool(poolData);

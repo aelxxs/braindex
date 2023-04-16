@@ -230,6 +230,7 @@ const CreateNewStudySet = (props: any) => {
 	const [subject, setSubject] = useState("");
 	const [icon, setIcon] = useState("");
 	const [file, setFile] = useState<any>();
+
 	const [status, setStatus] = useState<boolean>(false);
 
 	const handleDocumentUpload = async () => {
@@ -248,8 +249,8 @@ const CreateNewStudySet = (props: any) => {
 
 	const handleSubmit = async () => {
 		const access = new Credentials({
-			accessKeyId: "AKIA3NEADT7AV4DZWZR4",
-			secretAccessKey: "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",
+			accessKeyId: "",
+			secretAccessKey: "",
 		});
 
 		const s3 = new S3({
@@ -282,8 +283,7 @@ const CreateNewStudySet = (props: any) => {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization:
-							"eyJraWQiOiJsdW1JS0d5aGw1ajYzeFVOYXNkdGdXcTN0U1lxWjFOcE1WTUhqakxIWUZFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIzMWFmNmYyYi05MDI5LTRkNzQtYWQ3Zi1hMWM5NGRhYTRmYzciLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIHBob25lIG9wZW5pZCBwcm9maWxlIGVtYWlsIiwiYXV0aF90aW1lIjoxNjgxNTk4NTU1LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9WUm9OcW5RZnYiLCJleHAiOjE2ODE2MDIxNTUsImlhdCI6MTY4MTU5ODU1NSwidmVyc2lvbiI6MiwianRpIjoiYTQ4YzRmYmEtYTEwMS00ODQwLWI3ZGUtNmViMjRhNjIxYzQyIiwiY2xpZW50X2lkIjoiaHZxMGZpYzVoY2ZqZXUybGJhOWJobmdrbiIsInVzZXJuYW1lIjoiYmhhdmlrIn0.O0zolzNnPa5KJUDuf00twYKnejOyBKfqevZbDigUUU89bRrXcG_r__1IDcTpOTA2grqMrgV8jmgHql5OTh3biN56_pYyDC529wtuAs3766u1sw8DeJ4HrxMehCHe_FFonfv-O1c3LrIsne-0XPSlHO49mKjB8g-9s78kcyFYuKpPcTNsiw5wgfxIPTiZujpwl7ZQX05IwX6c-Z1y3XTWdKIiI9dwwgogyT9SRvXlcx0c7_rHraixwMIt51AQU0LauMTYuQN03zZ_2xRVZwSD6dehPJUyJDFVswJ6cZHpEyuTdGEfbO3Y9Bfvkp0l5p0WxDqXXaTqor2A-hup2cKckg",
+						Authorization: "",
 					},
 					body: JSON.stringify({
 						Records: [
@@ -441,7 +441,7 @@ export const HomeScreen = ({ navigation }: any) => {
 	};
 
 	return (
-		<YStack px="$3.5" py="$5" space="$2.5" pos="relative" flex={1}>
+		<YStack px="$3.5" py="$5" space="$4" pos="relative" flex={1}>
 			<XStack jc="space-between" ai="center">
 				<H2>Welcome!</H2>
 				<Avatar circular onPress={logOut}>
