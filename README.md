@@ -14,7 +14,7 @@ A simple app to help you study and review annoying lecture slides.
 ```sh
 git clone <...>
 npm install
-npm run dev --clear
+npm run start --clear
 ```
 
 ### Usage
